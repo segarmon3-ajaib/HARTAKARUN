@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harta Karun - AJAIB4D</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f001a, #1a0033);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===================== MARQUEE SELAMAT ===================== */
+    .marquee-container {
+      background: rgba(255, 215, 0, 0.12);
+      border-bottom: 2px solid #ffd700;
+      overflow: hidden;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.25);
+    }
+
+    .marquee {
+      white-space: nowrap;
+      animation: slideRightToLeft 35s linear infinite;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff9d6;
+      text-shadow: 0 0 10px #ffeb3b, 0 0 25px #ffeb3b;
+    }
+
+    @keyframes slideRightToLeft {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ===================== HARTA KARUN BOX ===================== */
+    .treasure-section {
+      padding: 40px 15px 60px;
+      text-align: center;
+    }
+
+    .chest-container {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin: 0 auto 25px;
+    }
+
+    .chest {
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+      border-radius: 18px;
+      box-shadow: 
+        0 0 40px rgba(255,215,0,0.6),
+        inset 0 0 60px rgba(255,215,0,0.3);
+      animation: glow 3.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 30px rgba(255,215,0,0.4),
+                    inset 0 0 50px rgba(255,215,0,0.2);
+      }
+      to {
+        box-shadow: 0 0 80px rgba(255,215,0,0.9),
+                    inset 0 0 90px rgba(255,215,0,0.5);
+      }
+    }
+
+    .title {
+      font-size: 4.2rem;
+      font-weight: 900;
+      letter-spacing: 8px;
+      background: linear-gradient(90deg, #ffd700, #ffeb3b, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255,215,0,0.8);
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-family: 'Times New Roman', serif;
+      font-size: 3.8rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #f5d742, #ffef9e, #f5d742);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px #ffd700, 0 0 40px #ffeb3b;
+      letter-spacing: 3px;
+      margin: 10px 0 35px;
+    }
+
+    /* ===================== BUTTON JARAH ===================== */
+    .btn-jarah {
+      display: inline-block;
+      padding: 18px 60px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(45deg, #c39c00, #ffd700, #c39c00);
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 30px rgba(255,215,0,0.7);
+      transition: all 0.4s;
+      margin: 20px 0 50px;
+    }
+
+    .btn-jarah:hover {
+      transform: translateY(-8px) scale(1.08);
+      box-shadow: 0 0 60px rgba(255,215,0,1);
+    }
+
+    /* ===================== ONLINE MEMBERS ===================== */
+    .online-box {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #39ff14;
+      text-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14;
+      margin: 40px 0;
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 0.8; transform: scale(1); }
+      50%     { opacity: 1;   transform: scale(1.05); }
+    }
+
+    /* ===================== HADIAH JARAH BOX ===================== */
+    .hadiah-box {
+      background: rgba(30, 20, 60, 0.6);
+      border: 2px solid #ffd700;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 0 15px 40px;
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(5px);
+    }
+
+    .hadiah-box:hover {
+      background: rgba(60, 40, 100, 0.7);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+    }
+
+    .hadiah-title {
+      font-size: 2.1rem;
+      color: #ffeb3b;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Marquee Selamat -->
+  <div class="marquee-container">
+    <div class="marquee">
+        🎉 Selamat <span id="winnerName">VIP_xxxxxx</span> berhasil JARAH <span id="winnerAmount">Rp 18.750.000</span> 🔥💰 &nbsp;&nbsp;&nbsp; 
+      🎉 Selamat <span>AJAIB_KING</span> JARAH <span>Rp 9.200.000</span> 💎 &nbsp;&nbsp;&nbsp;
+      🎉 Selamat <span>superwin99</span> menang <span>Rp 25.400.000</span> 🤑 &nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- 2. Harta Karun Section -->
+  <div class="treasure-section">
+    <div class="chest-container">
+      <div class="chest"></div>
+    </div>
+
+    <div class="title">HARTA KARUN</div>
+    <div class="subtitle">AJAIB4D</div>
+
+    <a href="https://ajaib4d.com/play" class="btn-jarah">JARAH SEKARANG →</a>
+
+    <!-- Online Member -->
+    <div class="online-box">
+      <i class="fas fa-users"></i> Member Online Saat Ini : 
+      <span id="onlineCount">2,847</span> orang 🔥
+    </div>
+
+    <!-- Hadiah Jarah -->
+    <div class="hadiah-box" onclick="alert('List Hadiah akan muncul di sini (bisa ganti ke modal / page baru)')">
+      <div class="hadiah-title">HADIAH JARAH</div>
+      <small>Klik untuk melihat daftar hadiah menarik hari ini!</small>
+    </div>
+  </div>
+
+  <script>
+    // Random online counter (efek hidup)
+    function randomOnline() {
+      const base = 2400;
+      const variasi = Math.floor(Math.random() * 1200);
+      document.getElementById('onlineCount').textContent = 
+        (base + variasi).toLocaleString('id-ID');
+    }
+
+    // Ganti pemenang secara periodik (demo)
+    const winners = [
+      {name:"VIP_BINTANG7", amount:"Rp 12.850.000"},
+      {name:"hokkyqueen", amount:"Rp 7.920.000"},
+      {name:"JACKPOT88", amount:"Rp 32.150.000"},
+      {name:"ratu4d", amount:"Rp 15.400.000"},
+      {name:"superwin99", amount:"Rp 9.750.000"}
+    ];
+
+    function changeWinner() {
+      const random = Math.floor(Math.random() * winners.length);
+      document.getElementById('winnerName').textContent = winners[random].name;
+      document.getElementById('winnerAmount').textContent = winners[random].amount;
+    }
+
+    // Jalankan
+    setInterval(randomOnline, 8000);
+    setInterval(changeWinner, 10000);
+
+    // Pertama kali langsung jalankan
+    randomOnline();
+    changeWinner();
+  </script>
+</body>
+</html>
